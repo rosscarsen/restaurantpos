@@ -3,7 +3,7 @@ version: 1.0.7+11
 publish_to: none
 description: A new Flutter project.
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.7.2
 
 dependencies:
   auto_size_text: ^3.0.0
@@ -18,9 +18,9 @@ dependencies:
   google_fonts: ^6.2.1
   pinput: ^5.0.1
   shimmer: ^3.0.0
-  webview_flutter: ^4.10.0
+  webview_flutter: ^4.13.0
   flutter_launcher_icons: ^0.14.3
-  flutter_native_splash: ^2.4.5
+  flutter_native_splash: ^2.4.6
   timer_count_down: ^2.2.2
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -28,18 +28,15 @@ dev_dependencies:
     sdk: flutter
 
 flutter_native_splash:
-  android: true
-  ios: true
-  web: false
-  image: images/icon.png
-  fullscreen: true
   color: "#FFFFFF"
+  image: images/icon.png
+  android_gravity: center
+  color_dark: "#FFFFFF"
   android_12:
     color: "#FFFFFF"
+    color_dark: "#FFFFFF"
     image: images/icon.png
-    #color_dark: "#08998c"
-  android_gravity: center
-  ios_content_mode: center
+    icon_background_color: "#FFFFFF"  
 flutter:
   uses-material-design: true
   assets:

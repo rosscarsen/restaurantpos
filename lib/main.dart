@@ -113,6 +113,7 @@ void main() async {
         ),
       ),
       locale: locale,
+      supportedLocales: const [Locale('zh', 'CN'), Locale('zh', 'HK'), Locale('en', 'US')],
       fallbackLocale: const Locale("en", "us"),
       translations: Messages(),
     ),
