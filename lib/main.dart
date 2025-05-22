@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -75,7 +76,7 @@ void main() async {
   await GetStorage.init();
   final GetStorage box = GetStorage();
   String localLangString = box.read("localLang") ?? "";
-  Locale locale =
+  Locale initialLocale =
       localLangString.isNotEmpty
           ? localLangString == "zh_CN"
               ? const Locale("zh", "CN")
@@ -112,8 +113,16 @@ void main() async {
           foregroundColor: Colors.grey[900]!,
         ),
       ),
-      locale: locale,
-      fallbackLocale: const Locale("en", "us"),
+      // 设置支持的语言
+      supportedLocales: const [Locale('zh', 'CN'), Locale('zh', 'HK'), Locale('en', 'US')],
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      localeResolutionCallback: (locale, supportedLocales) {
+        if (supportedLocales.contains(locale)) {
+          return locale;
+        } else {
+          return initialLocale;
+        }
+      },
       translations: Messages(),
     ),
   );
